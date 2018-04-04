@@ -129,6 +129,8 @@ public abstract class Dbms {
             dbms = new DbmsRedshift(vc, dbName, host, port, schema, user, password, jdbcClassName);
         } else if (dbName.equals("dummy")) {
             dbms = new DbmsDummy(vc);
+        } else if (dbName.equals("mysql")){
+            dbms = new DbmsMysql(vc, dbName, host, port, schema, user, password, jdbcClassName);
         } else {
             String msg = String.format("Unsupported DBMS: %s", dbName);
             VerdictLogger.error("Dbms", msg);
